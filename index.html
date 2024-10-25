@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+        }
+        .column {
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Are you at risk for diabetes?</h1>
+    <form action="/predict" method="POST">
+        <p>Answer "Yes" or "No" to the following symptoms:</p>
+
+        <label for="Age">Age: </label>
+        <input type = "number" id = "Age" name = "Age" required><br>
+
+        <label for="Gender">Are you Male? Yes for Male, No for Female</label>
+        <select id="Gender" name="Gender" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Polyuria">Have you been urinating in large amounts?</label>
+        <select id="Polyuria" name="Polyuria" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Polydipsia">Have you been experiencing excessive thirst?</label>
+        <select id="Polydipsia" name="Polydipsia" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Sudden_Weight_Loss">Have you been experiencing sudden weight loss?</label>
+        <select id="Sudden_Weight_Loss" name="Sudden_Weight_Loss" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Weakness">Have you been experiencing body weakness?</label>
+        <select id="Weakness" name="Weakness" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Polyphagia">Have you been eating excessively?</label>
+        <select id="Polyphagia" name="Polyphagia" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Genital_Thrush">Have you ever experienced genital thrush, or a yeast infection?</label>
+        <select id="Genital_Thrush" name="Genital_Thrush" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Visual_Blurring">Have you been experiencing blurry vision?</label>
+        <select id="Visual_Blurring" name="Visual_Blurring" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Itching">Have you bene experiencing itching throughout the body?</label>
+        <select id="Itching" name="Itching" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Irritability">Have you been feeling irritable?</label>
+        <select id="Irritability" name="Irritability" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Delayed_Healing">Have you been experiencing or noticed delayed healing?</label>
+        <select id="Delayed_Healing" name="Delayed_Healing" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Partial_Paresis">Have you experienced partial loss of voluntary movement?</label>
+        <select id="Partial_Paresis" name="Partial_Paresis" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Muscle_Stiffness">Have you been experiencing muscle stiffness?</label>
+        <select id="Muscle_Stiffness" name="Muscle_Stiffness" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Alopecia">Have you been experiencing hair loss?</label>
+        <select id="Alopecia" name="Alopecia" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="Obesity">Have you been diagnosed as obese?</label>
+        <select id="Obesity" name="Obesity" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <button type="submit" class="submit-btn">Check for Diabetes</button>
+    </form>
+
+    <!-- This is where the result will be displayed after submission -->
+    <div class = "output">
+        {% if results %}
+            <h3>{{response}}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
